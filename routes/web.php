@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+/** Halaman Utama */
+Route::get('/',[\App\Http\Controllers\BaseController::class,'index'])->name('index');
+Route::get('/courses',[\App\Http\Controllers\BaseController::class,'courses'])->name('courses');
+Route::get('/programs',[\App\Http\Controllers\BaseController::class,'programs'])->name('programs');
+Route::get('/teachers',[\App\Http\Controllers\BaseController::class,'teachers'])->name('teachers');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
